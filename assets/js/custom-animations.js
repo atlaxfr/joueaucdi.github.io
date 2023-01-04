@@ -1,0 +1,3 @@
+class TextLoadingAnimation{constructor(elem,timeMs){this.elem=elem;this.timeMs=timeMs;this.state=false;this.interval=undefined;}
+start(){if(!this.state){this.state=true;this.#animate();}}
+stop(){if(this.state){this.state=false;clearInterval(this.interval);}}#animate(){this.interval=setInterval(()=>{if(this.elem.is("input")){let dot=this.elem.val().split(".");let dotCount=dot.length-1;if(dotCount<3){this.elem.val(this.elem.val()+".");}else{this.elem.val(dot[0]);}}else{let dot=this.elem.text().split(".");let dotCount=dot.length-1;if(dotCount<3){this.elem.text(this.elem.text()+".");}else{this.elem.text(dot[0]);}}},this.timeMs);}}
